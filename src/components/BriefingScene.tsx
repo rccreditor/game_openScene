@@ -165,7 +165,7 @@ export const BriefingScene = () => {
         {/* Mission Title Overlay */}
         <div className="absolute top-8 left-8 z-20">
           <div className="bg-army-green-dark/90 border border-army-green-light/30 rounded-lg p-4 backdrop-blur-sm">
-            <h1 className="text-gold-accent font-bold text-xl">MISSION 1: INTEL BRIEFING</h1>
+            <h1 className="text-gold-accent font-bold text-xl"> INTEL BRIEFING</h1>
             <p className="text-desert-tan text-sm">Classification: BRIEFING</p>
           </div>
         </div>
