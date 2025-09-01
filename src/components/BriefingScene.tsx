@@ -79,7 +79,7 @@ export const BriefingScene = () => {
               <img 
                 src={majorGeneral} 
                 alt="Major General" 
-                className="h-[680px] w-auto drop-shadow-2xl"
+                className="h-[500px] w-auto drop-shadow-2xl"
               />
               
               {/* Speech Bubble */}
