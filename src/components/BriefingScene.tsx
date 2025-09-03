@@ -42,8 +42,8 @@ export const BriefingScene = () => {
   };
 
   const handleShutterComplete = () => {
-    // This would trigger the next scene/mission
-    console.log("Mission starting...");
+    // Redirect to mission URL in the same tab after shutter animation completes
+    window.location.href = 'https://army-game.vercel.app/';
   };
 
 
