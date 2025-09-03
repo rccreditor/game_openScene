@@ -8,12 +8,14 @@ export const ShutterTransition = ({ onComplete }: ShutterTransitionProps) => {
   const [animationStage, setAnimationStage] = useState<'start' | 'closing' | 'closed' | 'message'>('start');
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setAnimationStage('closing'), 100);
-    const timer2 = setTimeout(() => setAnimationStage('closed'), 800);
-    const timer3 = setTimeout(() => setAnimationStage('message'), 1000);
+    // Smoothen the sequence and hold fully-covered screen longer
+    const timer1 = setTimeout(() => setAnimationStage('closing'), 80);
+    const timer2 = setTimeout(() => setAnimationStage('closed'), 920);
+    const timer3 = setTimeout(() => setAnimationStage('message'), 1300);
+    // Keep message/covered state slightly longer so navigation feels seamless
     const timer4 = setTimeout(() => {
       if (onComplete) onComplete();
-    }, 3000);
+    }, 3800);
 
     return () => {
       clearTimeout(timer1);
@@ -27,7 +29,7 @@ export const ShutterTransition = ({ onComplete }: ShutterTransitionProps) => {
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Top Shutter */}
       <div 
-        className={`absolute top-0 left-0 w-full bg-army-green-dark border-b-4 border-gold-accent transition-all duration-700 ease-in-out ${
+        className={`absolute top-0 left-0 w-full bg-army-green-dark border-b-4 border-gold-accent transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
           animationStage === 'start' ? 'h-0' : 
           animationStage === 'closing' ? 'h-1/2' : 'h-1/2'
         }`}
@@ -50,7 +52,7 @@ export const ShutterTransition = ({ onComplete }: ShutterTransitionProps) => {
 
       {/* Bottom Shutter */}
       <div 
-        className={`absolute bottom-0 left-0 w-full bg-army-green-dark border-t-4 border-gold-accent transition-all duration-700 ease-in-out ${
+        className={`absolute bottom-0 left-0 w-full bg-army-green-dark border-t-4 border-gold-accent transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
           animationStage === 'start' ? 'h-0' : 
           animationStage === 'closing' ? 'h-1/2' : 'h-1/2'
         }`}
@@ -73,8 +75,8 @@ export const ShutterTransition = ({ onComplete }: ShutterTransitionProps) => {
 
       {/* JAI HIND Message */}
       {animationStage === 'message' && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center space-y-16 animate-scale-in max-w-4xl px-8">
+        <div className="absolute inset-0 flex items-center justify-center will-change-transform will-change-opacity">
+          <div className="text-center space-y-16 animate-scale-in max-w-4xl px-8 transition-opacity duration-500 ease-out">
             {/* Good Luck Player Text */}
             <div className="relative">
               <h2 className="text-4xl md:text-6xl font-light text-gold-accent tracking-[0.3em] animate-fade-in" 
