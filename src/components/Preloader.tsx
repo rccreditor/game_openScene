@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import ashokaChakra from '@/assets/ashoka-chakra.png';
-import emblem from '@/assets/emblem.png';
+import ashokaChakra from '@/assets/ashoka-chakra.webp';
+import emblem from '@/assets/emblem.webp';
 
 interface PreloaderProps {
   onComplete: () => void;

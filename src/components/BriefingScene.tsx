@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Preloader } from './Preloader';
 import { ShutterTransition } from './ShutterTransition';
-import basecampBg from '@/assets/army-basecamp-bg.jpg';
-import majorGeneral from '@/assets/major-general.png';
+import basecampBg from '@/assets/army-basecamp-bg.webp';
+import majorGeneral from '@/assets/major-general.webp';
 
 const briefingParagraphs = [
   "Welcome, Protector. You are entering a secure training environment inspired by the Indian Army. Your objective is to learn the essentials that will keep families financially safe—calm mind, steady aim.",
@@ -84,7 +84,7 @@ export const BriefingScene = () => {
               
               {/* Speech Bubble */}
               <div className="absolute top-8 left-full ml-8 w-[600px]">
-                <div className="relative bg-army-green-dark/95 border border-army-green-light/30 rounded-xl p-6 backdrop-blur-sm shadow-tactical">
+                <div className="relative bg-army-green-dark/95 border border-army-green-light/30 rounded-xl p-6 backdrop-blur-sm shadow-tactical h-[400px] flex flex-col">
                   {/* Speech bubble pointer */}
                   <div className="absolute left-0 top-8 w-0 h-0 border-l-0 border-r-[20px] border-t-[10px] border-b-[10px] border-r-army-green-dark/95 border-t-transparent border-b-transparent -translate-x-[20px]"></div>
                   <div className="absolute left-0 top-8 w-0 h-0 border-l-0 border-r-[18px] border-t-[9px] border-b-[9px] border-r-army-green-light/30 border-t-transparent border-b-transparent -translate-x-[18px]"></div>
@@ -101,7 +101,7 @@ export const BriefingScene = () => {
                   </div>
 
                   {/* Current Dialogue */}
-                  <div className="bg-background/10 rounded-lg p-4 border border-army-green-light/20 mb-4">
+                  <div className="bg-background/10 rounded-lg p-4 border border-army-green-light/20 mb-4 flex-1 flex items-center">
                     <p className="text-foreground text-lg leading-relaxed">
                       {briefingParagraphs[currentParagraph]}
                     </p>
